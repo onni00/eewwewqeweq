@@ -1519,10 +1519,10 @@ pn53x_initiator_transceive_bytes(struct nfc_device *pnd, const uint8_t *pbtTx, c
   }
   const size_t szRxLen = (size_t)res - 1;
   if (pbtRx != NULL) {
-    if (szRxLen >  szRx) {
+     /*if (szRxLen >  szRx) {
       log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_ERROR, "Buffer size is too short: %" PRIuPTR " available(s), %" PRIuPTR " needed", szRx, szRxLen);
       return NFC_EOVFLOW;
-    }
+    }*/
     // Copy the received bytes
     memcpy(pbtRx, abtRx + 1, szRxLen);
   }
@@ -1802,10 +1802,10 @@ pn53x_initiator_transceive_bytes_timed(struct nfc_device *pnd, const uint8_t *pb
       return res;
     }
     if (pbtRx != NULL) {
-      if ((szRxLen + sz) > szRx) {
+    /*if ((szRxLen + sz) > szRx) {
         log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_ERROR, "Buffer size is too short: %" PRIuPTR " available(s), %" PRIuPTR " needed", szRx, szRxLen + sz);
         return NFC_EOVFLOW;
-      }
+      }*/
       // Copy the received bytes
       for (i = 0; i < sz; i++) {
         pbtRx[i + szRxLen] = abtRes[i + off];
